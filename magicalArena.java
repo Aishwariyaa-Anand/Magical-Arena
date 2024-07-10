@@ -4,14 +4,12 @@ public class magicalArena {
     private Player playerA;
     private Player playerB;
     private Dice dice;
-    private Scanner sc;
 
     //constructor
     public magicalArena(Player playerA, Player playerB) {
         this.playerA = playerA;
         this.playerB = playerB;
         this.dice = new Dice();
-        this.sc = new Scanner();
     }
 
     //player turn to fight
@@ -25,16 +23,28 @@ public class magicalArena {
             Player attacker = playerB;
             Player defender = playerA;
         }
+
+        while (playerA.isAlive() && playerB.isAlive()) {
+            fight(attacker, defender);
+            Player temp = attacker;
+            attacker = defender;
+            defender = temp;
+        }
+        
+        String winner = (playerA.isAlive()) ? "Player A" : "Player B"
+        System.out.printf("%s wins", winner);
     }
 
     //fight result
-    public fight() {
-        System.out.printf("%s's turn to attack. Roll Dice(Press Enter)", attacker);
-        sc.nextInt();
-        int attackval = dice.rollDice();
+    public fight(Player attacker, Player defender) {
+        int attackedval = attacker.attackplayer();
 
-        System.out.printf("%s's turn to defend. Roll Dice(Press Enter)", defender);
-        sc.nextInt();
-        int defendval = dice.rollDice();
+        int defendedval = defender.defendplayer();
+
+        int damageCaused = attackedval - defendedval;
+
+        if (damageCaused > 0) {
+            defender.damageRecieve(damageCaused);
+        }
     }
 }

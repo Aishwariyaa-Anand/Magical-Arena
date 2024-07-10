@@ -15,17 +15,21 @@ public class Player {
     }
 
     //attackplayer
-    public attackplayer() {
+    public int attackplayer() {
         System.out.printf("%s's turn to attack. Roll Dice(Press Enter)", attacker);
         sc.nextInt();
         int attackval = dice.rollDice();
+        int damageCreated = attackval * attack;
+        return damageCreated;
     }
 
     //defend
-    public defend() {
+    public int defendplayer() {
         System.out.printf("%s's turn to defend. Roll Dice(Press Enter)", defender);
         sc.nextInt();
         int defendval = dice.rollDice();
+        int damageDefended = strength * defendval;
+        return damageDefended
     }
 
     public void damageRecieve(int damage) {
@@ -35,7 +39,7 @@ public class Player {
     public boolean isAlive() {
         return health > 0;
     }
-    
+
     //tostring
     public String toString() {
         
