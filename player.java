@@ -5,10 +5,10 @@ public class Player {
     private int strength;
     private int attack;
     private Dice dice;
-    private String name;
+    private char name;
 
     //constructor
-    public Player(int health, int strength, int attack, String name) {
+    public Player(int health, int strength, int attack, char name) {
         this.health = health;
         this.strength = strength;
         this.attack = attack;
