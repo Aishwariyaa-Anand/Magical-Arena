@@ -34,7 +34,8 @@ public class MagicalArena {
         }
         
         String winner = (playerA.isAlive()) ? "Player A" : "Player B";
-        System.out.printf("%s wins", winner);
+        System.out.printf("%s wins.\n", winner);
+        System.out.print("----------GAME OVER----------");
     }
 
     //fight result
@@ -52,5 +53,16 @@ public class MagicalArena {
         if (damageCaused > 0) {
             defender.damageRecieve(damageCaused);
         }
+
+        System.out.printf("%s attacks with %d damage. \n%s defends with %d defense. \n",attacker, attackedval, defender, defendedval);
+        System.out.printf("%s receives %d damage.", defender, (damageCaused > 0) ? damageCaused : 0);
+
+        if (defender.getHealth()>0){
+            System.out.printf("Remaining health: %d\n\n", defender.getHealth());
+        }
+        else {
+            System.out.printf("%s dies\n\n",defender);
+        }
+         
     }
 }

@@ -9,6 +9,8 @@ public class Dice {
      
     //roll dice value
     public int rollDice() {
-        return rand.nextInt(6);
+        int roll = rand.nextInt(6) + 1;
+        System.out.printf("Dice Rolled: %d\n", roll);
+        return roll;
     }
 }

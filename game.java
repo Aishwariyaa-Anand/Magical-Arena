@@ -11,7 +11,7 @@ public class Game {
         int strengthA = sc.nextInt();
         System.out.print("Attack: ");
         int attackA = sc.nextInt();
-        Player playerA = new Player(healthA, strengthA, attackA);
+        Player playerA = new Player(healthA, strengthA, attackA, "A");
 
         System.out.println("Enter player B attributes");
         System.out.print("Health: ");
@@ -20,7 +20,7 @@ public class Game {
         int strengthB = sc.nextInt();
         System.out.print("Attack: ");
         int attackB = sc.nextInt();
-        Player playerB = new Player(healthB, strengthB, attackB);
+        Player playerB = new Player(healthB, strengthB, attackB, "B");
 
         MagicalArena ma = new MagicalArena(playerA, playerB);
         ma.play();

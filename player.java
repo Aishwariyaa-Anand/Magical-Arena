@@ -5,12 +5,14 @@ public class Player {
     private int strength;
     private int attack;
     private Dice dice;
+    private String name;
 
     //constructor
-    public Player(int health, int strength, int attack) {
+    public Player(int health, int strength, int attack, String name) {
         this.health = health;
         this.strength = strength;
         this.attack = attack;
+        this.name = name;
         this.dice = new Dice();
     }
 
@@ -40,7 +42,7 @@ public class Player {
         return health;
     }
     //tostring
-    //public String toString() {
-    //    
-    //}
+    public String toString() {
+        return String.format("Player %s", name);
+    }
 }
