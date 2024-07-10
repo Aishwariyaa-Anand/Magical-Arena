@@ -6,14 +6,14 @@ public class MagicalArena {
     private Dice dice;
 
     //constructor
-    public magicalArena(Player playerA, Player playerB) {
+    public MagicalArena(Player playerA, Player playerB) {
         this.playerA = playerA;
         this.playerB = playerB;
         this.dice = new Dice();
     }
 
     //player turn to fight
-    public play() {
+    public void play() {
         //first rounds attacker and defender
         if (playerA.getHealth() <= playerB.getHealth()) {
             Player attacker = playerA;
@@ -31,12 +31,12 @@ public class MagicalArena {
             defender = temp;
         }
         
-        String winner = (playerA.isAlive()) ? "Player A" : "Player B"
+        String winner = (playerA.isAlive()) ? "Player A" : "Player B";
         System.out.printf("%s wins", winner);
     }
 
     //fight result
-    public fight(Player attacker, Player defender) {
+    public void fight(Player attacker, Player defender) {
         int attackedval = attacker.attackplayer();
 
         int defendedval = defender.defendplayer();

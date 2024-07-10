@@ -29,7 +29,7 @@ public class Player {
         sc.nextInt();
         int defendval = dice.rollDice();
         int damageDefended = strength * defendval;
-        return damageDefended
+        return damageDefended;
     }
 
     public void damageRecieve(int damage) {
