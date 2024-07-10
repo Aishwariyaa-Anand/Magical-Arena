@@ -4,7 +4,6 @@ public class Player {
     private int health;
     private int strength;
     private int attack;
-    private Dice dice;
     private char name;
 
     //constructor
@@ -13,19 +12,16 @@ public class Player {
         this.strength = strength;
         this.attack = attack;
         this.name = name;
-        this.dice = new Dice();
     }
 
     //attackplayer
-    public int attackplayer() {
-        int attackval = dice.rollDice();
+    public int attackplayer(int attackval) {
         int damageCreated = attackval * attack;
         return damageCreated;
     }
 
     //defend
-    public int defendplayer() {
-        int defendval = dice.rollDice();
+    public int defendplayer(int defendval) {
         int damageDefended = strength * defendval;
         return damageDefended;
     }

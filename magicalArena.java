@@ -4,12 +4,14 @@ public class MagicalArena {
     private Player playerA;
     private Player playerB;
     private Scanner sc;
+    private Dice dice;
 
     //constructor
     public MagicalArena(Player playerA, Player playerB) {
         this.playerA = playerA;
         this.playerB = playerB;
         this.sc = new Scanner(System.in);
+        this.dice = new Dice();
     }
 
     //player turn to fight
@@ -42,11 +44,13 @@ public class MagicalArena {
     public void fight(Player attacker, Player defender) {
         System.out.printf("%s's turn to attack. Roll Dice(Press Enter)", attacker);
         sc.nextLine();
-        int attackedval = attacker.attackplayer();
+        int attackval = dice.rollDice();
+        int attackedval = attacker.attackplayer(attackval);
 
         System.out.printf("%s's turn to defend. Roll Dice(Press Enter)", defender);
         sc.nextLine();
-        int defendedval = defender.defendplayer();
+        int defendval = dice.rollDice();
+        int defendedval = defender.defendplayer(defendval);
 
         int damageCaused = attackedval - defendedval;
 
