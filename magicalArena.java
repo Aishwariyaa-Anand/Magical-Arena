@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class magicalArena {
+public class MagicalArena {
     private Player playerA;
     private Player playerB;
     private Dice dice;
@@ -13,7 +13,7 @@ public class magicalArena {
     }
 
     //player turn to fight
-    public playerTurn() {
+    public play() {
         //first rounds attacker and defender
         if (playerA.getHealth() <= playerB.getHealth()) {
             Player attacker = playerA;
