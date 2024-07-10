@@ -3,25 +3,27 @@ import java.util.Scanner;
 public class MagicalArena {
     private Player playerA;
     private Player playerB;
-    private Dice dice;
+    private Scanner sc;
 
     //constructor
     public MagicalArena(Player playerA, Player playerB) {
         this.playerA = playerA;
         this.playerB = playerB;
-        this.dice = new Dice();
+        this.sc = new Scanner(System.in);
     }
 
     //player turn to fight
     public void play() {
+        Player attacker;
+        Player defender;
         //first rounds attacker and defender
         if (playerA.getHealth() <= playerB.getHealth()) {
-            Player attacker = playerA;
-            Player defender = playerB;
+            attacker = playerA;
+            defender = playerB;
         }
         else {
-            Player attacker = playerB;
-            Player defender = playerA;
+            attacker = playerB;
+            defender = playerA;
         }
 
         while (playerA.isAlive() && playerB.isAlive()) {
@@ -37,8 +39,12 @@ public class MagicalArena {
 
     //fight result
     public void fight(Player attacker, Player defender) {
+        System.out.printf("%s's turn to attack. Roll Dice(Press Enter)", attacker);
+        sc.nextLine();
         int attackedval = attacker.attackplayer();
 
+        System.out.printf("%s's turn to defend. Roll Dice(Press Enter)", defender);
+        sc.nextLine();
         int defendedval = defender.defendplayer();
 
         int damageCaused = attackedval - defendedval;
